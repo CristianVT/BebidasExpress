@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebidas Express - Licores a Domicilio</title>
+    <link rel="icon" type="image/png" href="img/BebidasExpress.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#inicio" style="color: #d4af37; text-decoration: none;">
+                        <i class="fas fa-wine-bottle"></i>
+                        <span>Bebidas Express</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="Producto.html">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#caracteristicas">Características</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="Carrito.html" class="cart-icon" aria-label="Carrito de compras con 0 ítems">
+                        <i class="fas fa-shopping-cart"></i> <span class="cart-count">(0)</span></a>
+                    </li>
+                    <li class="user-icon" aria-label="Iniciar sesión">
+                        <i class="fas fa-user"></i>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section con Video -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>¡Bienvenido a Bebida Express!</h1>
+                <p>¡Disfruta tus bebidas favoritas sin salir de casa! En Bebidas Express conectamos las mejores tiendas locales para los amantes de licores, cervezas y destilados.</p>
+                <div class="hero-buttons">
+                    <a href="Producto.html" class="btn-primary">Explorar Productos</a>
+                    <a href="#contacto" class="btn-primary">Contáctanos</a>
+                </div>
+            </div>
+            <div class="hero-video">
+                <video controls poster="" class="hero-video-player">
+                    <source src="img/BebidasExpress.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="productos" class="productos">
+        <div class="container">
+            <h2>Nuestros Productos Destacados</h2>
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <div class="producto-image">
+                        <img src="img/CervezaHeineken.png" alt="Heineken">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Heineken</h3>
+                        <p>Cerveza - Lata 330ml</p>
+                        <div class="precio-agregar">
+                            <span class="precio">S/ 5.50</span>
+                            <button class="btn-agregar-pro" data-product="Heineken" data-price="5.50" data-image="img/CervezaHeineken.png">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-image">
+                        <img src="img/Corona.png" alt="Corona">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Corona</h3>
+                        <p>Cerveza - Botella 330ml</p>
+                        <div class="precio-agregar">
+                            <span class="precio">S/ 5.00</span>
+                            <button class="btn-agregar-pro" data-product="Corona" data-price="5.00" data-image="img/Corona.png">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-image">
+                        <img src="img/Cusquenadorada.jpg" alt="Cusqueña Dorada">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Cusqueña Dorada</h3>
+                        <p>Cerveza - Botella 330ml</p>
+                        <div class="precio-agregar">
+                            <span class="precio">S/ 5.50</span>
+                            <button class="btn-agregar-pro" data-product="Cusqueña Dorada" data-price="5.50" data-image="img/CusqueñaDorada.jpg">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-image">
+                        <img src="img/JohnnieWalkerRedLabel.png" alt="Johnnie Walker Red Label">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Johnnie Walker Red Label</h3>
+                        <p>Whisky - Botella 750ml</p>
+                        <div class="precio-agregar">
+                            <span class="precio">S/ 52.90</span>
+                            <button class="btn-agregar-pro" data-product="Johnnie Walker Red Label" data-price="52.90" data-image="img/JohnnieWalkerRedLabel.png">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-image">
+                        <img src="img/PilsenCallao.jpg" alt="Pilsen Callao">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Pilsen Callao</h3>
+                        <p>Cerveza - Botella 620ml</p>
+                        <div class="precio-agregar">
+                            <span class="precio">S/ 6.00</span>
+                            <button class="btn-agregar-pro" data-product="Pilsen Callao" data-price="6.00" data-image="img/PilsenCallao.jpg">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-image">
+                        <img src="img/PilsenTrujillo.jpg" alt="Pilsen Trujillo">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Pilsen Trujillo</h3>
+                        <p>Cerveza - Botella 620ml</p>
+                        <div class="precio-agregar">
+                            <span class="precio">S/ 6.20</span>
+                            <button class="btn-agregar-pro" data-product="Pilsen Trujillo" data-price="6.20" data-image="img/PilsenTrujillo.jpg">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="nosotros">
+        <div class="container">
+            <div class="nosotros-content">
+                <div class="nosotros-text">
+                    <h2>Sobre Bebidas Express</h2>
+                    <p>Somos un startup innovador que revoluciona la forma de comprar bebidas alcohólicas. Nuestra plataforma conecta directamente las mejores tiendas locales de licores con los consumidores, creando un ecosistema donde todos ganan.</p>
+                    <p>Trabajamos de la mano con comercios locales para que puedan ofrecer sus productos únicos y especializados a través de nuestra plataforma digital, mientras tú disfrutas de la comodidad de recibir productos auténticos en tu puerta.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Tiendas Aliadas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Productos Únicos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24h</span>
+                            <span class="stat-label">Entrega Express</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nosotros-image">
+                    <img src="img/Equipo,png.webp" alt="Equipo Bebidas Express">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section id="caracteristicas" class="caracteristicas">
+        <div class="container">
+            <h2>¿Por qué elegir Bebidas Express?</h2>
+            <div class="caracteristicas-grid">
+                <div class="caracteristica">
+                    <i class="fas fa-store"></i>
+                    <h3>Red de Tiendas Locales</h3>
+                    <p>Accede a productos únicos de las mejores licorerías y tiendas especializadas de tu ciudad</p>
+                </div>
+                <div class="caracteristica">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Productos Auténticos</h3>
+                    <p>Cada producto viene directamente de tiendas locales especializadas con garantía de autenticidad</p>
+                </div>
+                <div class="caracteristica">
+                    <i class="fas fa-truck"></i>
+                    <h3>Entrega Rápida</h3>
+                    <p>Recibe tus bebidas en la puerta de tu casa en tiempo récord</p>
+                </div>
+                <div class="caracteristica">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Apoyo al Comercio Local</h3>
+                    <p>Con cada compra apoyas a los pequeños comercios y emprendedores de tu comunidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Únete a la revolución del comercio local</h2>
+                <p>Sé el primero en conocer nuevas tiendas aliadas y productos exclusivos</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Ingresa tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="nosotros-content">
+                <div class="nosotros-text">
+                    <h2>Únete a la Familia Bebidas Express: ¡Impulsa tu Licorería!</h2>
+                    <p>¿Eres una licorería y buscas expandir tu negocio? ¡Estás en el lugar correcto! En Bebidas Express, conectamos tu pasión con una clientela ansiosa por descubrir nuevas bebidas.
+                        Completa este formulario y un miembro de nuestro equipo se pondrá en contacto contigo para explorar cómo podemos crecer juntos.<p> 
+                    <h4>¡Es hora de llevar tu licorería al siguiente nivel!</h4>
+                </div>
+                <div class="formulario-contacto">
+                    <form class="contacto-form">
+                        <h2>Contáctanos</h2>
+                        <input type="text" name="Nombre_completo" placeholder="Nombre completo" required>
+                        <input type="email" name="Correo_electronico" placeholder="Correo electrónico" required>
+                        <input type="tel" name="Telefono" placeholder="Teléfono">
+                        <textarea name="Mensaje" placeholder="Mensaje" rows="5" required></textarea>
+                        <button type="submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <a href="#inicio" style="color: #d4af37; text-decoration: none;">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Bebidas Express</span>
+                        </a>
+                    </div>
+                    <p>La plataforma que conecta tiendas locales de licores con consumidores, apoyando el comercio local.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="Producto.html">Productos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bebidas Express. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/auth-sesion.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

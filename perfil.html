@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Bebidas Express</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="header-dropdown.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html#inicio" style="color: #d4af37; text-decoration: none;">
+                        <i class="fas fa-wine-bottle"></i>
+                        <span>Bebidas Express</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="Producto.html">Productos</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#caracteristicas">Características</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="Carrito.html" class="cart-icon" aria-label="Carrito de compras con 0 ítems">
+                        <i class="fas fa-shopping-cart"></i> <span class="cart-count">(0)</span></a>
+                    </li>
+                    <li class="user-icon" aria-label="Iniciar sesión">
+                        <i class="fas fa-user"></i>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Mi Perfil</h1>
+            <p>Gestiona tu información personal y preferencias de cuenta</p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <section class="perfil-section">
+        <div class="container">
+            <div class="perfil-container">
+                <!-- Sidebar de navegación -->
+                <div class="perfil-sidebar">
+                    <div class="user-avatar">
+                        <div class="avatar-circle" id="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <button class="btn-change-avatar" id="change-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                            Cambiar foto
+                        </button>
+                        <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <nav class="perfil-nav">
+                        <button class="nav-item active" data-section="informacion">
+                            <i class="fas fa-user"></i>
+                            Información Personal
+                        </button>
+                        <button class="nav-item" data-section="seguridad">
+                            <i class="fas fa-shield-alt"></i>
+                            Seguridad
+                        </button>
+                        <button class="nav-item" data-section="preferencias">
+                            <i class="fas fa-cog"></i>
+                            Preferencias
+                        </button>
+                        <button class="nav-item" data-section="estadisticas">
+                            <i class="fas fa-chart-bar"></i>
+                            Mis Estadísticas
+                        </button>
+                        <button class="nav-item" data-section="notificaciones">
+                            <i class="fas fa-bell"></i>
+                            Notificaciones
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Contenido principal -->
+                <div class="perfil-content">
+                    <!-- Sección: Información Personal -->
+                    <div class="content-section active" id="informacion">
+                        <div class="section-header">
+                            <h2><i class="fas fa-user"></i> Información Personal</h2>
+                            <p>Actualiza tu información personal y de contacto</p>
+                        </div>
+
+                        <form class="perfil-form" id="info-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre completo *</label>
+                                    <input type="text" id="nombre" name="nombre" required>
+                                    <span class="error-message" id="nombreError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico *</label>
+                                    <input type="email" id="email" name="email" required readonly>
+                                    <small>El email no se puede cambiar</small>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678">
+                                    <span class="error-message" id="telefonoError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                                    <input type="date" id="fecha-nacimiento" name="fechaNacimiento">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="direccion">Dirección de entrega</label>
+                                <textarea id="direccion" name="direccion" rows="3" placeholder="Ingresa tu dirección completa para entregas"></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ciudad">Ciudad</label>
+                                    <input type="text" id="ciudad" name="ciudad" placeholder="Santiago">
+                                </div>
+                                <div class="form-group">
+                                    <label for="codigo-postal">Código postal</label>
+                                    <input type="text" id="codigo-postal" name="codigoPostal" placeholder="7500000">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" id="cancel-info">Cancelar</button>
+                                <button type="submit" class="btn-primary" id="save-info">
+                                    <span class="btn-text">Guardar Cambios</span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i> Guardando...
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Sección: Seguridad -->
+                    <div class="content-section" id="seguridad">
+                        <div class="section-header">
+                            <h2><i class="fas fa-shield-alt"></i> Seguridad</h2>
+                            <p>Gestiona la seguridad de tu cuenta</p>
+                        </div>
+
+                        <!-- Cambiar contraseña -->
+                        <div class="security-card">
+                            <h3><i class="fas fa-key"></i> Cambiar Contraseña</h3>
+                            <p>Actualiza tu contraseña regularmente para mantener tu cuenta segura</p>
+                            
+                            <form class="perfil-form" id="password-form">
+                                <div class="form-group">
+                                    <label for="current-password">Contraseña actual *</label>
+                                    <div class="password-input">
+                                        <input type="password" id="current-password" name="currentPassword" required>
+                                        <button type="button" class="toggle-password" onclick="togglePasswordField('current-password')">
+                                            <i class="fas fa-eye" id="current-passwordIcon"></i>
+                                        </button>
+                                    </div>
+                                    <span class="error-message" id="currentPasswordError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="new-password">Nueva contraseña *</label>
+                                    <div class="password-input">
+                                        <input type="password" id="new-password" name="newPassword" required>
+                                        <button type="button" class="toggle-password" onclick="togglePasswordField('new-password')">
+                                            <i class="fas fa-eye" id="new-passwordIcon"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength" id="newPasswordStrength"></div>
+                                    <span class="error-message" id="newPasswordError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirmar nueva contraseña *</label>
+                                    <div class="password-input">
+                                        <input type="password" id="confirm-password" name="confirmPassword" required>
+                                        <button type="button" class="toggle-password" onclick="togglePasswordField('confirm-password')">
+                                            <i class="fas fa-eye" id="confirm-passwordIcon"></i>
+                                        </button>
+                                    </div>
+                                    <span class="error-message" id="confirmPasswordError"></span>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">
+                                        <span class="btn-text">Cambiar Contraseña</span>
+                                        <span class="btn-loading" style="display: none;">
+                                            <i class="fas fa-spinner fa-spin"></i> Cambiando...
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Sesiones activas -->
+                        <div class="security-card">
+                            <h3><i class="fas fa-devices"></i> Sesiones Activas</h3>
+                            <p>Revisa dónde has iniciado sesión</p>
+                            
+                            <div class="sessions-list" id="sessions-list">
+                                <!-- Las sesiones se cargarán dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección: Preferencias -->
+                    <div class="content-section" id="preferencias">
+                        <div class="section-header">
+                            <h2><i class="fas fa-cog"></i> Preferencias</h2>
+                            <p>Personaliza tu experiencia en Bebidas Express</p>
+                        </div>
+
+                        <form class="perfil-form" id="preferences-form">
+                            <div class="preference-card">
+                                <h3><i class="fas fa-wine-glass"></i> Preferencias de Productos</h3>
+                                
+                                <div class="form-group">
+                                    <label>Categorías favoritas</label>
+                                    <div class="checkbox-grid">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="categorias" value="vinos">
+                                            <span class="checkmark"></span>
+                                            Vinos
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="categorias" value="whisky">
+                                            <span class="checkmark"></span>
+                                            Whisky
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="categorias" value="cerveza">
+                                            <span class="checkmark"></span>
+                                            Cerveza
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="categorias" value="pisco">
+                                            <span class="checkmark"></span>
+                                            Pisco
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="categorias" value="vodka">
+                                            <span class="checkmark"></span>
+                                            Vodka
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="categorias" value="ron">
+                                            <span class="checkmark"></span>
+                                            Ron
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="precio-maximo">Rango de precio preferido</label>
+                                    <div class="range-input">
+                                        <input type="range" id="precio-maximo" name="precioMaximo" min="10" max="200" value="100">
+                                        <span class="range-value">Hasta S/ <span id="precio-value">100</span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="preference-card">
+                                <h3><i class="fas fa-truck"></i> Preferencias de Entrega</h3>
+                                
+                                <div class="form-group">
+                                    <label for="horario-preferido">Horario preferido de entrega</label>
+                                    <select id="horario-preferido" name="horarioPreferido">
+                                        <option value="">Seleccionar horario</option>
+                                        <option value="manana">Mañana (9:00 - 12:00)</option>
+                                        <option value="tarde">Tarde (12:00 - 18:00)</option>
+                                        <option value="noche">Noche (18:00 - 21:00)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="entregaRapida" id="entrega-rapida">
+                                        <span class="checkmark"></span>
+                                        Preferir entrega rápida (costo adicional)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">
+                                    <span class="btn-text">Guardar Preferencias</span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i> Guardando...
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Sección: Estadísticas -->
+                    <div class="content-section" id="estadisticas">
+                        <div class="section-header">
+                            <h2><i class="fas fa-chart-bar"></i> Mis Estadísticas</h2>
+                            <p>Resumen de tu actividad en Bebidas Express</p>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="total-pedidos">0</h3>
+                                    <p>Pedidos realizados</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="total-gastado">S/ 0</h3>
+                                    <p>Total gastado</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="producto-favorito">-</h3>
+                                    <p>Producto favorito</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="miembro-desde">-</h3>
+                                    <p>Miembro desde</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <h3>Compras por mes</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Gráfico de compras próximamente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección: Notificaciones -->
+                    <div class="content-section" id="notificaciones">
+                        <div class="section-header">
+                            <h2><i class="fas fa-bell"></i> Notificaciones</h2>
+                            <p>Configura cómo quieres recibir notificaciones</p>
+                        </div>
+
+                        <form class="perfil-form" id="notifications-form">
+                            <div class="notification-card">
+                                <h3><i class="fas fa-envelope"></i> Notificaciones por Email</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Confirmación de pedidos</h4>
+                                        <p>Recibe confirmación cuando realices un pedido</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" name="email-pedidos" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Estado de entrega</h4>
+                                        <p>Actualizaciones sobre el estado de tus entregas</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" name="email-entregas" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Ofertas y promociones</h4>
+                                        <p>Recibe ofertas especiales y promociones</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" name="email-ofertas">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Newsletter semanal</h4>
+                                        <p>Recibe nuestro newsletter con novedades</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" name="email-newsletter">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="notification-card">
+                                <h3><i class="fas fa-mobile-alt"></i> Notificaciones Push</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Pedidos en camino</h4>
+                                        <p>Notificación cuando tu pedido esté en camino</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" name="push-entregas">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Ofertas flash</h4>
+                                        <p>Alertas de ofertas por tiempo limitado</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" name="push-ofertas">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">
+                                    <span class="btn-text">Guardar Configuración</span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i> Guardando...
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zona de peligro -->
+            <div class="danger-zone">
+                <h3><i class="fas fa-exclamation-triangle"></i> Zona de Peligro</h3>
+                <p>Estas acciones son permanentes y no se pueden deshacer</p>
+                <button class="btn-danger" id="delete-account-btn">
+                    <i class="fas fa-trash"></i>
+                    Eliminar Cuenta
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de confirmación -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Confirmar Acción</h2>
+                <span class="close" id="close-confirm-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">¿Estás seguro de que quieres realizar esta acción?</p>
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="cancel-action">Cancelar</button>
+                    <button class="btn-danger" id="confirm-action">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-wine-bottle"></i>
+                        <span>Bebidas Express</span>
+                    </div>
+                    <p>La plataforma que conecta tiendas locales de licores con consumidores, apoyando el comercio local.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="caracteristicas.html">Características</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bebidas Express. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/auth-sesion.js"></script>
+    <script src="/js/perfil.js"></script>
+</body>
+</html>

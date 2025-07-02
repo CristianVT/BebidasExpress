@@ -1,0 +1,593 @@
+/* ===== ESTILOS PARA HISTORIAL DE PEDIDOS ===== */
+
+:root {
+  --primary-color: #d4af37;
+  --primary-dark: #b8941f;
+  --secondary-color: #1a1a1a;
+  --text-color: #333;
+  --text-light: #666;
+  --text-lighter: #999;
+  --background-light: #f8f9fa;
+  --white: #ffffff;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+  --error-color: #e74c3c;
+  --border-color: #e0e0e0;
+  --border-radius: 10px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Sección principal */
+.pedidos-section {
+  padding: 60px 0;
+  background: var(--background-light);
+  min-height: 70vh;
+}
+
+/* Filtros */
+.pedidos-filters {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.filter-group select {
+  padding: 10px 15px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  background: var(--white);
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.btn-clear-filters {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: fit-content;
+}
+
+.btn-clear-filters:hover {
+  border-color: var(--error-color);
+  color: var(--error-color);
+}
+
+/* Contenedor de pedidos */
+.pedidos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tarjeta de pedido */
+.pedido-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.pedido-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.pedido-header {
+  background: linear-gradient(135deg, var(--secondary-color), #2d2d2d);
+  color: var(--white);
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.pedido-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.pedido-info p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.pedido-estado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.estado-badge {
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.estado-badge.completado {
+  background: rgba(39, 174, 96, 0.2);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.estado-badge.en-proceso {
+  background: rgba(243, 156, 18, 0.2);
+  color: var(--warning-color);
+  border: 1px solid var(--warning-color);
+}
+
+.estado-badge.entregado {
+  background: rgba(52, 152, 219, 0.2);
+  color: var(--info-color);
+  border: 1px solid var(--info-color);
+}
+
+.pedido-total {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Contenido del pedido */
+.pedido-content {
+  padding: 25px;
+}
+
+.pedido-items {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.pedido-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: var(--background-light);
+  border-radius: var(--border-radius);
+}
+
+.item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h4 {
+  margin: 0 0 5px 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.item-details p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.item-quantity {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.item-price {
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+/* Acciones del pedido */
+.pedido-actions {
+  display: flex;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--info-color);
+  border: 2px solid var(--info-color);
+}
+
+.btn-outline:hover {
+  background: var(--info-color);
+  color: var(--white);
+}
+
+/* Estados especiales */
+.empty-state,
+.loading-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-content,
+.loading-content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.empty-content i,
+.loading-content i {
+  font-size: 4rem;
+  color: var(--text-lighter);
+  margin-bottom: 20px;
+}
+
+.empty-content h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.empty-content p,
+.loading-content p {
+  color: var(--text-light);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--white);
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(135deg, var(--secondary-color), #2d2d2d);
+  color: var(--white);
+}
+
+.modal-header h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.close {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.close:hover {
+  color: var(--primary-color);
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+/* Detalles del pedido en modal */
+.pedido-detalle {
+  display: grid;
+  gap: 25px;
+}
+
+.detalle-section {
+  background: var(--background-light);
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+.detalle-section h3 {
+  margin: 0 0 15px 0;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detalle-section h3 i {
+  color: var(--primary-color);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Timeline de estado */
+.estado-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.timeline-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+.timeline-icon.completed {
+  background: var(--success-color);
+}
+
+.timeline-icon.current {
+  background: var(--warning-color);
+}
+
+.timeline-icon.pending {
+  background: var(--text-lighter);
+}
+
+.timeline-content h4 {
+  margin: 0 0 5px 0;
+  color: var(--text-color);
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pedidos-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    min-width: auto;
+  }
+
+  .pedido-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pedido-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .item-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pedido-actions {
+    flex-direction: column;
+  }
+
+  .btn-action {
+    justify-content: center;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+  }
+
+  .modal-header {
+    padding: 20px 25px;
+  }
+
+  .modal-body {
+    padding: 25px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pedidos-section {
+    padding: 40px 0;
+  }
+
+  .pedidos-filters {
+    padding: 20px;
+  }
+
+  .pedido-content {
+    padding: 20px;
+  }
+
+  .empty-content i,
+  .loading-content i {
+    font-size: 3rem;
+  }
+
+  .empty-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Animaciones */
+.pedido-card {
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading spinner */
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pedidos - Bebidas Express</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/pedidos.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html#inicio" style="color: #d4af37; text-decoration: none;">
+                        <i class="fas fa-wine-bottle"></i>
+                        <span>Bebidas Express</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="Producto.html">Productos</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#caracteristicas">Características</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="Carrito.html" class="cart-icon" aria-label="Carrito de compras con 0 ítems">
+                        <i class="fas fa-shopping-cart"></i> <span class="cart-count">(0)</span></a>
+                    </li>
+                    <li class="user-icon" aria-label="Iniciar sesión">
+                        <i class="fas fa-user"></i>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Mis Pedidos</h1>
+            <p>Revisa el historial de tus compras y el estado de tus pedidos</p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <section class="pedidos-section">
+        <div class="container">
+            <!-- Filtros -->
+            <div class="pedidos-filters">
+                <div class="filter-group">
+                    <label for="filter-estado">Filtrar por estado:</label>
+                    <select id="filter-estado">
+                        <option value="todos">Todos los pedidos</option>
+                        <option value="completado">Completados</option>
+                        <option value="en-proceso">En proceso</option>
+                        <option value="entregado">Entregados</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-fecha">Filtrar por fecha:</label>
+                    <select id="filter-fecha">
+                        <option value="todos">Todas las fechas</option>
+                        <option value="ultima-semana">Última semana</option>
+                        <option value="ultimo-mes">Último mes</option>
+                        <option value="ultimos-3-meses">Últimos 3 meses</option>
+                    </select>
+                </div>
+                <button id="clear-filters" class="btn-clear-filters">
+                    <i class="fas fa-times"></i>
+                    Limpiar filtros
+                </button>
+            </div>
+
+            <!-- Lista de Pedidos -->
+            <div class="pedidos-container" id="pedidos-container">
+                <!-- Los pedidos se cargarán aquí dinámicamente -->
+            </div>
+
+            <!-- Estado vacío -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-content">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>No tienes pedidos aún</h3>
+                    <p>Cuando realices tu primera compra, aparecerá aquí tu historial de pedidos.</p>
+                    <a href="Producto.html" class="btn-primary">Explorar Productos</a>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading-state" id="loading-state">
+                <div class="loading-content">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando pedidos...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Detalles del Pedido -->
+    <div id="pedido-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detalles del Pedido</h2>
+                <span class="close" id="close-modal">&times;</span>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Contenido del modal se carga dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-wine-bottle"></i>
+                        <span>Bebidas Express</span>
+                    </div>
+                    <p>La plataforma que conecta tiendas locales de licores con consumidores, apoyando el comercio local.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="caracteristicas.html">Características</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bebidas Express. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/auth-sesion.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/pedidos.js"></script>
+</body>
+</html>
